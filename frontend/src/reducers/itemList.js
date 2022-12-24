@@ -46,6 +46,7 @@ const reducer = (state = {}, action) => {
         tab: null,
         tag: action.tag,
         currentPage: 0,
+
       };
       case APPLY_TITLE_FILTER:
         return {
@@ -56,6 +57,7 @@ const reducer = (state = {}, action) => {
           tab: null,
           tag: action.tag,
           currentPage: 0,
+          search: action.payload.search,
         };
     case HOME_PAGE_LOADED:
       return {

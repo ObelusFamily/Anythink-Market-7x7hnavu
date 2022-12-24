@@ -7,8 +7,14 @@ const ItemList = (props) => {
     return <div className="py-4">Loading...</div>;
   }
 
-  if (props.items.length === 0) {
+  if (props.items.length === 0 && !props.search) {
     return <div className="py-4 no-items">No items are here... yet.</div>;
+  }
+
+  if (props.items.length === 0 && props.search) {
+    return <div id="empty" className="d-flex justify-content-center align-items-center w-100 mt-150 text-center">
+      <div className="no-search"><i class="bi bi-emoji-frown"/>No items found for '{props.search}'.</div>
+      </div>;
   }
 
   return (
