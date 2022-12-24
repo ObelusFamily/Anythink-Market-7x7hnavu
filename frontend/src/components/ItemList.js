@@ -12,8 +12,8 @@ const ItemList = (props) => {
   }
 
   if (props.items.length === 0 && props.search) {
-    return <div id="empty" className="d-flex justify-content-center align-items-center w-100 mt-150 text-center">
-      <div className="no-search"><i class="bi bi-emoji-frown"/>No items found for '{props.search}'.</div>
+    return <div className="d-flex justify-content-center align-items-center w-100 mt-150 text-center">
+      <div id="empty" className="no-search"><i class="bi bi-emoji-frown"/>No items found for '{props.search}'.</div>
       </div>;
   }
 
