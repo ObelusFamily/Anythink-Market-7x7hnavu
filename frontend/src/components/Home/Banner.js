@@ -30,12 +30,12 @@ const Banner = (props) => {
       <div style={{width: "100%"}} className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div style={{width: "100%", gap: 4}} className="d-flex flex-row justify-content-center align-items-center">
-          <span>A place to<span style={{cursor: "pointer"}} onClick={()=>setShow(true)}> get</span></span>
-    <span style={{width:"max-content", margin: 10, display: show ? "flex" : "none"}} className="input-group">  
+          <span>A place to<span style={{cursor: "pointer"}} onClick={()=>setShow(!show)}> get</span></span>
+          {show && (<span style={{width:"max-content", margin: 10, display: show ? "flex" : "none"}} className="input-group">  
       <input id="search-box" value={searchValue} onChange={handleSearch}
        type="search" style={{minWidth: placeholder.length * 10 }} className="p-3 rounded-sm" placeholder={placeholder} aria-describedby="button-addon5"/>  
         <button type="submit" className="btn btn-primary"><i className="bi bi-search"></i></button>  
-    </span>  
+    </span>)}  
           <span>the cool stuff.</span>
         </div>
       </div>
