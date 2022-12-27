@@ -70,30 +70,37 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const MainView = (props) => {
+  console.log(props);
   return (
     <div>
-      <div className="feed-toggle">
-        <ul className="nav nav-tabs">
-          <YourFeedTab
-            token={props.token}
-            tab={props.tab}
-            onTabClick={props.onTabClick}
-          />
-
-          <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
-
-          <TagFilterTab tag={props.tag} />
-        </ul>
+     <div id="empty" style={{ display: props.itemsCount === 0 && props.searchValue ? "flex" : "none" }} className="justify-content-center align-items-center w-100 mt-150 text-center">
+      <div className="no-search"><i className="bi bi-emoji-frown"/>No items found for "{props.searchValue}".</div>
       </div>
+      {props.itemsCount > 0 && (
+        <>
+          <div className="feed-toggle">
+            <ul className="nav nav-tabs">
+              <YourFeedTab
+                token={props.token}
+                tab={props.tab}
+                onTabClick={props.onTabClick}
+              />
 
-      <ItemList
-        pager={props.pager}
-        items={props.items}
-        loading={props.loading}
-        searchVal={props.searchVal}
-        itemsCount={props.itemsCount}
-        currentPage={props.currentPage}
-      />
+              <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
+
+              <TagFilterTab tag={props.tag} />
+            </ul>
+          </div>
+
+          <ItemList
+            pager={props.pager}
+            items={props.items}
+            loading={props.loading}
+            itemsCount={props.itemsCount}
+            currentPage={props.currentPage}
+          />
+        </>
+      )}
     </div>
   );
 };

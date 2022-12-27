@@ -51,12 +51,12 @@ const reducer = (state = {}, action) => {
         return {
           ...state,
           pager: action.pager,
+          searchValue: action.searchValue,
           items: action.payload.items,
           itemsCount: action.payload.itemsCount,
-          searchVal: action.payload.search,
-          tab: null,
-          tag: action.tag,
+          tab: action.tab,
           currentPage: 0,
+          tag: null,
         };
     case HOME_PAGE_LOADED:
       return {
