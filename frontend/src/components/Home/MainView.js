@@ -90,8 +90,8 @@ const MainView = (props) => {
         pager={props.pager}
         items={props.items}
         loading={props.loading}
+        searchVal={props.searchVal}
         itemsCount={props.itemsCount}
-        search={props.search}
         currentPage={props.currentPage}
       />
     </div>

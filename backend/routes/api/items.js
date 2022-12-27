@@ -97,7 +97,7 @@ router.get("/", auth.optional, function (req, res, next) {
             })
           ),
           itemsCount: itemsCount,
-          search: req.query.title,
+          search: req.query.title ? req.query.title : "",
         });
       });
     })

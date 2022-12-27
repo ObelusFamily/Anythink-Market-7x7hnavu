@@ -8,9 +8,9 @@ const ItemList = (props) => {
   }
 
   if (props.items.length === 0) {
-    if (props.search) {
+    if(props.searchVal) {
       return <div className="d-flex justify-content-center align-items-center w-100 mt-150 text-center">
-      <div id="empty" className="no-search"><i class="bi bi-emoji-frown"/>No items found for '{props.search}'.</div>
+      <div id="empty" className="no-search"><i class="bi bi-emoji-frown"/>No items found for '{props.searchVal}'.</div>
       </div>;
     }
     return <div className="py-4 no-items">No items are here... yet.</div>;
