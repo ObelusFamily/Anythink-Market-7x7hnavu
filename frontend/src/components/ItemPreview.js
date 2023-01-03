@@ -56,7 +56,7 @@ const ItemPreview = (props) => {
             />
           </Link>
           {item.seller.isVerified && (
-            <div className="d-flex flex-row justify-content-center align-items-center">
+            <div id="item_verified_seller_item" className="d-flex flex-row justify-content-center align-items-center">
           <img style={{marginRight: 3}} src={verified_seller} />
           TOP SELLER
           </div>
