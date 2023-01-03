@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import agent from "../agent";
 import { connect } from "react-redux";
 import { ITEM_FAVORITED, ITEM_UNFAVORITED } from "../constants/actionTypes";
+import verified_seller from '../imgs/verified_seller.svg'
 
 const mapDispatchToProps = (dispatch) => ({
   favorite: (slug) =>
@@ -46,20 +47,40 @@ const ItemPreview = (props) => {
           <h3 className="card-title">{item.title}</h3>
           <p className="card-text crop-text-3">{item.description}</p>
         </Link>
-        <div className="d-flex flex-row align-items-center pt-2 item-footer">
-          <Link to={`/@${item.seller.username}`} className="flex-grow-1">
+        {item.seller.isVerified ? (<div id="item_verified_seller_item">
+        <div className="d-flex justify-content-between align-items-center pt-2 item-footer">
+          <Link to={`/@${item.seller.username}`}>
             <img
               src={item.seller.image}
               alt={item.seller.username}
-              className="user-pic rounded-circle pr-1"
+              className="user-pic rounded-circle"
+            />
+          </Link>
+            <div id="item_verified_seller_item" className="d-flex flex-row justify-content-center align-items-center">
+          <img style={{marginRight: 3}} src={verified_seller} />
+          TOP SELLER
+          </div>
+          <button className="btn btn-outline-secondary" onClick={handleClick}>
+            <i className="ion-heart"></i> {item.favoritesCount}
+          </button>
+        </div>
+        </div>)
+        : (
+          <div className="d-flex justify-content-between align-items-center pt-2 item-footer">
+          <Link to={`/@${item.seller.username}`}>
+            <img
+              src={item.seller.image}
+              alt={item.seller.username}
+              className="user-pic rounded-circle"
             />
           </Link>
           <button className="btn btn-outline-secondary" onClick={handleClick}>
             <i className="ion-heart"></i> {item.favoritesCount}
           </button>
         </div>
-      </div>
-    </div>
+        )}
+        </div>
+        </div>
   );
 };
 
