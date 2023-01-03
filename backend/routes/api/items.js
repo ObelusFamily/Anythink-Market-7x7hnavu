@@ -91,8 +91,6 @@ router.get("/", auth.optional, function (req, res, next) {
           items: await Promise.all(
             items.map(async function (item) {
               item.seller = await User.findById(item.seller);
-              item.seller.isVerifed = await User.findById(item.seller)
-                .isVerifed;
               return item.toJSONFor(user);
             })
           ),
@@ -131,7 +129,6 @@ router.get("/feed", auth.required, function (req, res, next) {
       .then(function (results) {
         var items = results[0];
         var itemsCount = results[1];
-
         return res.json({
           items: items.map(function (item) {
             return item.toJSONFor(user);
